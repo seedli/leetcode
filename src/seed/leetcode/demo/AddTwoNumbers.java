@@ -2,10 +2,6 @@ package seed.leetcode.demo;
 
 public class AddTwoNumbers {
 
-    public static void main(String[] args){
-
-    }
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode ans = new ListNode(0);
         ListNode ansHead = ans;
@@ -36,12 +32,6 @@ public class AddTwoNumbers {
         }
 
         return ansHead.next;
-    }
-
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
     }
 }
 
