@@ -19,16 +19,8 @@ public class AddTwoNumbers {
 
             ans.val = Sum;
 
-            if(l1 != null && l1.next != null){
-                l1 = l1.next;
-            }else{
-                l1 = null;
-            }
-            if(l2 != null && l2.next != null){
-                l2 = l2.next;
-            }else{
-                l2 = null;
-            }
+            l1 = (l1 == null) ? l1 : l1.next;
+            l2 = (l2 == null) ? l2 : l2.next;
         }
 
         return ansHead.next;
