@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by seedli on 2017/1/25.
  */
-public class LetterCombinations {
+public class A17_LetterCombinations {
 
     public static void main(String[] args){
         System.out.println(letterCombinations("232"));

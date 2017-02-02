@@ -3,7 +3,7 @@ package seed.leetcode.demo;
 /**
  * Created by User on 2017/1/26.
  */
-public class RemoveNodeFromEnd {
+public class A19_RemoveNodeFromEnd {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode Node = head;

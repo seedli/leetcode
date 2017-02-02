@@ -1,6 +1,6 @@
 package seed.leetcode.demo;
 
-public class AddTwoNumbers {
+public class A2_AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode ans = new ListNode(0);

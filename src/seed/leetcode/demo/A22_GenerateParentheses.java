@@ -8,7 +8,7 @@ import java.util.Stack;
 /**
  * Created by seedli on 2017/1/31.
  */
-public class GenerateParentheses {
+public class A22_GenerateParentheses {
 
     public static void main(String[] args){
         System.out.println(generateParenthesis(3));

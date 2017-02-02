@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Created by User on 2017/1/26.
  */
-public class ValidParentheses {
+public class A20_ValidParentheses {
 
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
