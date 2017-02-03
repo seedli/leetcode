@@ -24,8 +24,8 @@ public class A46_Permutations {
         return result;
     }
 
-    public static void backtrack(List<List<Integer>> result, int[] nums, int[] solution, boolean[] used, int idx){
-        if(idx == nums.length){
+    public static void backtrack(List<List<Integer>> result, int[] nums, int[] solution, boolean[] used, int depth){
+        if(depth == nums.length){
             List<Integer> intList = new ArrayList<>();
             for(int i: solution){
                 intList.add(i);
@@ -39,8 +39,8 @@ public class A46_Permutations {
             if(!used[i]){
                 used[i] = true;
 
-                solution[idx] = nums[i];
-                backtrack(result, nums, solution, used, idx+1);
+                solution[depth] = nums[i];
+                backtrack(result, nums, solution, used, depth+1);
 
                 used[i] = false;
             }
