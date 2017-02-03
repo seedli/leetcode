@@ -14,10 +14,14 @@ public class Utility {
         }
         ListNode head = new ListNode(0);
         while(node != null){
-            System.out.print(node.val + "->");
+            System.out.print(node.val);
+            if(node.next != null){
+                System.out.print("->");
+            }
             node = node.next;
         }
         node = head;
+        System.out.println();
     }
 
     public static ListNode ListToListNode(List list){
