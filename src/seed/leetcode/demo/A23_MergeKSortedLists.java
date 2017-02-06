@@ -9,15 +9,54 @@ import java.util.List;
 public class A23_MergeKSortedLists {
 
     public static void main(String[] args){
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        Utility.printListNodeVal(Utility.ListToListNode(list));
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        list1.add(1);
+        list1.add(3);
+        list1.add(5);
+        list2.add(2);
+        list2.add(4);
+        list2.add(6);
+        ListNode[] lists = new ListNode[2];
+        lists[0] = Utility.ListToListNode(list1);
+        lists[1] = Utility.ListToListNode(list2);
+
+        Utility.printListNodeVal(mergeKLists(lists));
     }
 
-    public ListNode mergeKLists(ListNode[] lists) {
-        return null;
+    //Correct but Time Limit Exceeded !! T_T
+    public static ListNode mergeKLists(ListNode[] lists) {
+        ListNode theNode = new ListNode(0);
+        ListNode head = theNode;
+
+        boolean AllEnd = false;
+
+        while( ! AllEnd){
+            AllEnd = true;
+            int Smaller = Integer.MAX_VALUE;
+            int SmallerIdx = 0;
+            for(int i=0; i<lists.length; i++){
+                if(lists[i] == null){
+                    continue;
+                }
+                AllEnd = false;
+                if(lists[i].val < Smaller){
+                    Smaller = lists[i].val;
+                    SmallerIdx = i;
+                }
+            }
+            if( ! AllEnd){
+                theNode.next = lists[SmallerIdx];
+                theNode = theNode.next;
+                if(lists[SmallerIdx].next == null){
+                    lists[SmallerIdx] = null;
+                }else{
+                    lists[SmallerIdx] = lists[SmallerIdx].next;
+                }
+            }
+        }
+
+        return head.next;
     }
 
 
