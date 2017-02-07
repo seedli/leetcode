@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by seedli on 2017/1/25.
  */
-public class A16_ThreeSumCloset {
+public class A16_3SumCloset {
 
     public static void main(String[] args){
         System.out.println(
