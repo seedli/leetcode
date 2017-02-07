@@ -9,7 +9,8 @@ import java.util.List;
  */
 public class A34_SearchForARange {
     public static void main(String[] args){
-        System.out.println(Arrays.toString(searchRange(new int[]{2,2}, 2)));
+        System.out.println(Arrays.toString(searchRange(new int[]{1,1,1,2,2,2,2,2,3,3,3,3,3}, 2)));
+        //System.out.println(Arrays.toString(searchRange(new int[]{2,2}, 2)));
     }
 
     public static int[] searchRange(int[] nums, int target) {
@@ -17,38 +18,40 @@ public class A34_SearchForARange {
         int end = nums.length -1;
         int[] result = new int[]{-1,-1};
 
-        //binary search first target
-        int firstIdx = Arrays.binarySearch(nums, target);
-        if(firstIdx < 0) return result;
+        int idx = -1;
 
-        start = firstIdx;
-        //find the upper range of the target value
-        while(start != end){
+        //find first target value of array
+        while(start <= end){
             int mid = (start + end) / 2;
-            if(nums[mid] > target){
-                end = mid-1;
-            }else if(nums[mid] < target){
-                start = mid+1;
+            if(nums[mid] >= target){
+                end = mid - 1;
             }else{
-                end = mid-1;
+                start = mid + 1;
             }
+            if(nums[mid] == target) idx = mid;
         }
-        result[1] = end;
+
+        if(idx == -1 || nums[idx] != target) return result;
+
+        result[0] = idx;
+
 
         start = 0;
-        end = firstIdx;
-        //find the lower range of the target value
-        while(start != end){
+        end = nums.length-1;
+
+        //find the last value of the array
+        while(start <= end){
             int mid = (start + end) / 2;
-            if(nums[mid] > target){
-                end = mid-1;
-            }else if(nums[mid] < target){
-                start = mid+1;
+            if(nums[mid] <= target){
+                start = mid + 1;
             }else{
-                start = mid+1;
+                end = mid - 1;
             }
+            if(nums[mid] == target) idx = mid;
         }
-        result[0] = end;
+
+        result[1] = idx;
+
 
         return result;
     }
