@@ -27,7 +27,7 @@ public class A18_4Sum {
         if(idx+1 >= nums.length-1) return;
 
         for(int i=idx; i<nums.length; i++){
-            if(i>idx && nums[i] == nums[i-1]) continue;
+            if(i>idx && nums[i] == nums[i-1]) continue; // avoid duplicate
             twoSum(nums, num4, nums[i], result, i+1, target-nums[i]);
         }
     }
