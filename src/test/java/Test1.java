@@ -1,11 +1,9 @@
 import org.junit.Assert;
 import org.junit.Test;
-import seed.leetcode.demo.A18_4Sum;
-import seed.leetcode.demo.A39_CombinationSum;
-import seed.leetcode.demo.A40_CombinationSum_II;
-import seed.leetcode.demo.A5_LongestPalindromicSubstring;
+import seed.leetcode.demo.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -64,6 +62,69 @@ public class Test1 {
             }
             System.out.println();
         }
+    }
+
+    @Test
+    public void testA41(){
+        A41_FirstMissingPositive alg = new A41_FirstMissingPositive();
+        System.out.println(alg.firstMissingPositive(new int[]{1,0,3,3,0,2}));
+    }
+
+    @Test
+    public void testA43(){
+        A43_MultiplyStrings alg = new A43_MultiplyStrings();
+        System.out.println(alg.multiply("9133", "0"));
+    }
+
+    @Test
+    public void testQuickSort(){
+        int[] nums = new int[]{5,2,6,1,3,4};
+
+        quicksort(nums, 0, nums.length-1);
+
+        System.out.println(Arrays.toString(nums));
+    }
+
+    private void quicksort(int[] numbers, int low, int high) {
+        int i = low, j = high;
+        // Get the pivot element from the middle of the list
+        int pivot = numbers[low + (high-low)/2];
+
+        // Divide into two lists
+        while (i <= j) {
+            // If the current value from the left list is smaller then the pivot
+            // element then get the next element from the left list
+            while (numbers[i] < pivot) {
+                i++;
+            }
+            // If the current value from the right list is larger then the pivot
+            // element then get the next element from the right list
+            while (numbers[j] > pivot) {
+                j--;
+            }
+
+            // If we have found a values in the left list which is larger then
+            // the pivot element and if we have found a value in the right list
+            // which is smaller then the pivot element then we exchange the
+            // values.
+            // As we are done we can increase i and j
+            if (i <= j) {
+                exchange(numbers, i, j);
+                i++;
+                j--;
+            }
+        }
+        // Recursion
+        if (low < j)
+            quicksort(numbers, low, j);
+        if (i < high)
+            quicksort(numbers, i, high);
+    }
+
+    private void exchange(int[] numbers, int i, int j) {
+        int temp = numbers[i];
+        numbers[i] = numbers[j];
+        numbers[j] = temp;
     }
 
 
