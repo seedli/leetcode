@@ -1,8 +1,6 @@
 package seed.leetcode.demo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -11,8 +9,24 @@ import java.util.stream.IntStream;
  */
 public class A49_GroupAnagrams {
 
-    //TIME LIMIT EXCEED ~~ QQ
     public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> result = new HashMap<>();
+
+        for(String str : strs){
+            char[] arrStr = str.toCharArray();
+            Arrays.sort(arrStr);
+            if( ! result.containsKey(String.valueOf(arrStr))){
+                result.put(String.valueOf(arrStr), new ArrayList<String>());
+            }
+            result.get(String.valueOf(arrStr)).add(str);
+
+        }
+        return new ArrayList<>(result.values());
+    }
+
+
+    //TIME LIMIT EXCEED ~~ QQ
+    public List<List<String>> groupAnagrams1(String[] strs) {
         List<List<String>> result = new ArrayList<>();
         List<List<String>> groups = new ArrayList<>();
 
