@@ -1,6 +1,8 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by User on 2017/2/9.
@@ -55,5 +57,28 @@ public class TestPractices {
         int temp = numbers[i];
         numbers[i] = numbers[j];
         numbers[j] = temp;
+    }
+
+    @Test
+    public void testPermutation(){
+        List<String> list = new ArrayList<>();
+        permutation("abcd", list);
+
+        for(String str : list){
+            System.out.println(str);
+        }
+    }
+
+    public void permutation(String str, List list) {
+        permutation("", str, list);
+    }
+
+    private void permutation(String prefix, String str, List list) {
+        int n = str.length();
+        if (n == 0) list.add(prefix);
+        else {
+            for (int i = 0; i < n; i++)
+                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n), list);
+        }
     }
 }
