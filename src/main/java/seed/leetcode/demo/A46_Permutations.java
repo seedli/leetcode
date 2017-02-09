@@ -10,7 +10,7 @@ import java.util.List;
 public class A46_Permutations {
 
     public static void main(String[] args){
-        permute(new int[]{1,2,3});
+        permute(new int[]{1,1,2});
     }
 
     public static List<List<Integer>> permute(int[] nums) {
@@ -34,7 +34,6 @@ public class A46_Permutations {
             return;
         }
 
-
         for(int i=0; i<nums.length; i++){
             if(!used[i]){
                 used[i] = true;
@@ -45,6 +44,5 @@ public class A46_Permutations {
                 used[i] = false;
             }
         }
-
     }
 }
