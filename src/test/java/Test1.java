@@ -166,4 +166,10 @@ public class Test1 {
         }
     }
 
+    @Test
+    public void testA58(){
+        A58_LengthOfLastWord alg = new A58_LengthOfLastWord();
+        System.out.println(alg.lengthOfLastWord(" a "));
+    }
+
 }
