@@ -151,4 +151,19 @@ public class Test1 {
         }
     }
 
+    @Test
+    public void testA56(){
+        A56_MergeIntervals alg = new A56_MergeIntervals();
+
+        List<Interval> list = new ArrayList<>();
+        list.add(new Interval(1,4));
+        list.add(new Interval(5,6));
+
+        List<Interval> result = alg.merge(list);
+
+        for(Interval intv : result){
+            System.out.println(intv.toString());
+        }
+    }
+
 }

@@ -13,6 +13,8 @@ public class A56_MergeIntervals {
 
     public List<Interval> merge(List<Interval> intervals) {
 
+        if(intervals.size() < 2) return intervals;
+
         //sort the list
         Collections.sort(intervals, new Comparator<Interval>() {
             @Override
@@ -32,25 +34,36 @@ public class A56_MergeIntervals {
         int fromIdx = 0;
         int toIdx = 0;
         int start = 0;
-        int end = 0;
+        int end = intervals.get(0).end;
+        boolean gotEnd = false;
 
         while(fromIdx < intervals.size() && toIdx < intervals.size()){
             Interval from = intervals.get(fromIdx);
             Interval to = intervals.get(toIdx);
+
             start = from.start;
-            if(from.end >= to.start){
-                if(from.end >= to.end){ //eat
-                    end = from.end;
+
+            if(end >= to.start){
+                if(end >= to.end){ //eat
+                    end = end; // do nothing
                 }else{ //merge
                     end = to.end;
                 }
-                toIdx++;
-            }else if(from.end < to.start){
-                end = from.end;
+                if(toIdx+1 >= intervals.size()){
+                    gotEnd = true;
+                }else{
+                    toIdx++;
+                }
+            }else if(end < to.start){
                 result.add(new Interval(start,end));
                 fromIdx = toIdx;
+                end = intervals.get(toIdx).end;
             }
 
+            if(gotEnd){
+                result.add(new Interval(start,end));
+                break;
+            }
         }
 
         return result;
