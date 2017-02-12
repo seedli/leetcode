@@ -1,7 +1,5 @@
 package seed.leetcode.demo;
 
-import java.util.Arrays;
-
 /**
  * Created by seedli on 2017/2/12.
  */

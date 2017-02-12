@@ -172,4 +172,21 @@ public class Test1 {
         System.out.println(alg.lengthOfLastWord(" a "));
     }
 
+    @Test
+    public void testA59(){
+        A59_SpiralMatrixII alg = new A59_SpiralMatrixII();
+        int[][] result = alg.generateMatrix(5);
+
+        for(int[] ary : result){
+            System.out.println(Arrays.toString(ary));
+        }
+    }
+
+    @Test
+    public void testA60(){
+        A60_PermutationSequence alg = new A60_PermutationSequence();
+
+        System.out.println(alg.getPermutation(9,54494));
+    }
+
 }
