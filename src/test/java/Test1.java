@@ -189,4 +189,26 @@ public class Test1 {
         System.out.println(alg.getPermutation(9,54494));
     }
 
+    @Test
+    public void testA61(){
+        A61_RotateList alg = new A61_RotateList();
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+
+        ListNode node = Utility.ListToListNode(list);
+        Utility.printListNodeVal(alg.rotateRight(node, 7));
+    }
+
+    @Test
+    public void test62(){
+        A62_UniquePaths alg = new A62_UniquePaths();
+
+        System.out.println(alg.uniquePaths(100,100));
+        //System.out.println(alg.uniquePaths2(23,12));
+    }
+
 }
