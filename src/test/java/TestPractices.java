@@ -81,4 +81,13 @@ public class TestPractices {
                 permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n), list);
         }
     }
+
+    @Test
+    public void testMod(){
+        int x=6;
+        int y=7;
+
+        System.out.println(  (x+y)  );
+        System.out.println(  (7+y-x)  );
+    }
 }
