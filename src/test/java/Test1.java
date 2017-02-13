@@ -268,4 +268,9 @@ public class Test1 {
         System.out.println(alg.climbStairs(3));
     }
 
+    @Test
+    public void testA71(){
+        A71_SimplifyPath alg = new A71_SimplifyPath();
+        System.out.println(alg.simplifyPath("/a/./b/../../../../c/"));
+    }
 }

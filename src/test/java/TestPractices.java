@@ -90,4 +90,11 @@ public class TestPractices {
         System.out.println(  (x+y)  );
         System.out.println(  (7+y-x)  );
     }
+
+    @Test
+    public void testReplaceAll(){
+        String s = "/home//foo/";
+        s = s.replaceAll("//","/");
+        System.out.println(Arrays.toString(s.split("/")));
+    }
 }
