@@ -211,4 +211,61 @@ public class Test1 {
         //System.out.println(alg.uniquePaths2(23,12));
     }
 
+    @Test
+    public void testA63(){
+        A63_UniquePathsII alg = new A63_UniquePathsII();
+
+        System.out.println(alg.uniquePathsWithObstacles(
+                new int[][]{
+                        {0,1,0,0,0},
+                        {1,0,0,0,0},
+                        {0,0,0,0,0},
+                        {0,0,0,0,0}
+                }
+        ));
+    }
+
+    @Test
+    public void testA64(){
+        A64_MinimumPathSum alg = new A64_MinimumPathSum();
+
+        System.out.println(alg.minPathSum(
+                new int[][]{
+                        {1,4,8,6,2,2,1,7},
+                        {4,7,3,1,4,5,5,1},
+                        {8,8,2,1,1,8,0,1},
+                        {8,9,2,9,8,0,8,9},
+                        {5,7,5,7,1,8,5,5},
+                        {7,0,9,4,5,6,5,6},
+                        {4,9,9,7,9,1,9,0}
+                }
+        ));
+    }
+
+    @Test
+    public void testA66(){
+        A66_PlusOne alg = new A66_PlusOne();
+        System.out.println(Arrays.toString(alg.plusOne(
+                new int[]{9,9,9,9})
+        ));
+    }
+
+    @Test
+    public void testA67(){
+        A67_AddBinary alg = new A67_AddBinary();
+        System.out.println(alg.addBinary("100","110010"));
+    }
+
+    @Test
+    public void testA69(){
+        A69_SqrtX alg = new A69_SqrtX();
+        System.out.println(alg.mySqrt(2147395600));
+    }
+
+    @Test
+    public void testA70(){
+        A70_ClimbingStairs alg = new A70_ClimbingStairs();
+        System.out.println(alg.climbStairs(3));
+    }
+
 }
