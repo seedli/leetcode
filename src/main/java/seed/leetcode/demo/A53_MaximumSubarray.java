@@ -15,7 +15,7 @@ public class A53_MaximumSubarray {
     }
 
     //Time Limit Exceeded
-    public int maxSubArray_Bad(int[] nums) {
+    public int maxSubArray2(int[] nums) {
         int max=Integer.MIN_VALUE;
 
         for(int i=0; i<nums.length; i++){

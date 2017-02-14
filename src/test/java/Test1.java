@@ -273,4 +273,27 @@ public class Test1 {
         A71_SimplifyPath alg = new A71_SimplifyPath();
         System.out.println(alg.simplifyPath("/a/./b/../../../../c/"));
     }
+
+    @Test
+    public void testA73(){
+        A73_SetMatrixZeroes alg = new A73_SetMatrixZeroes();
+        alg.setZeroes(new int[][]{
+                {0,0,0,5},
+                {4,3,1,4},
+                {0,1,1,4},
+                {1,2,1,3},
+                {0,0,1,1}
+        });
+    }
+
+    @Test
+    public void testA74(){
+        A74_Search2DMatrix alg = new A74_Search2DMatrix();
+        System.out.println(alg.searchMatrix(
+                new int[][]{
+                        {1,3}
+                },
+                2
+        ));
+    }
 }
