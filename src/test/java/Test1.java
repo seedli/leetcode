@@ -296,4 +296,22 @@ public class Test1 {
                 2
         ));
     }
+
+    @Test
+    public void testA75(){
+        A75_SortColors alg = new A75_SortColors();
+        alg.sortColors(new int[]{  1,2,0,1,2,0,1,0,1,2  });
+    }
+
+    @Test
+    public void testA77(){
+        A77_Combinations alg = new A77_Combinations();
+        List<List<Integer>> list = alg.combine(4,2);
+        for(List<Integer> ls : list){
+            for(Integer val : ls){
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
 }
