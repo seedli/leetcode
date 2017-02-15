@@ -3,6 +3,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * Created by User on 2017/2/9.
@@ -96,5 +98,17 @@ public class TestPractices {
         String s = "/home//foo/";
         s = s.replaceAll("//","/");
         System.out.println(Arrays.toString(s.split("/")));
+    }
+
+    @Test
+    public void testQueue(){
+        Queue<Integer> q = new LinkedBlockingDeque<>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+
+        while(!q.isEmpty()){
+            System.out.println(q.poll());
+        }
     }
 }

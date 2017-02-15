@@ -314,4 +314,34 @@ public class Test1 {
             System.out.println();
         }
     }
+
+    @Test
+    public void testA78(){
+        A78_Subsets alg = new A78_Subsets();
+        List<List<Integer>> list = alg.subsets(new int[]{1,2,3});
+        for(List<Integer> ls : list){
+            for(Integer val : ls){
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void testA79(){
+        A79_WordSearch alg = new A79_WordSearch();
+        System.out.println(alg.exist( new char[][]{
+                {'A','B','C','E'},
+                {'S','F','C','S'},
+                {'A','D','E','E'}
+                },
+                "ABCCEDASG"
+        ));
+    }
+
+    @Test
+    public void testA80(){
+        A80_RemoveDuplicatesFromSortedArrayII alg = new A80_RemoveDuplicatesFromSortedArrayII();
+        alg.removeDuplicates( new int[]{-3,-1,0,0,0,3,3} );
+    }
 }
