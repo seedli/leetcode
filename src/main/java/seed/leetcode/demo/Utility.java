@@ -9,9 +9,7 @@ import java.util.List;
 public class Utility {
 
     public static void printListNodeVal(ListNode node){
-        if(node == null){
-            return;
-        }
+        if(node == null) return;
         ListNode head = node;
         while(node != null){
             System.out.print(node.val);
