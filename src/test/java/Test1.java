@@ -351,4 +351,39 @@ public class Test1 {
         A80_RemoveDuplicatesFromSortedArrayII alg = new A80_RemoveDuplicatesFromSortedArrayII();
         alg.removeDuplicates( new int[]{-3,-1,0,0,0,3,3} );
     }
+
+    @Test
+    public void testA81(){
+        A81_SearchInRotatedSortedArrayII alg = new A81_SearchInRotatedSortedArrayII();
+
+        System.out.println(alg.search(new int[]{2,3,3,4,5,6,7,0,0,1,2}, 2));
+    }
+
+    @Test
+    public void testA82(){
+        A82_RemoveDuplicatesFromSortedListII alg = new A82_RemoveDuplicatesFromSortedListII();
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.add(5);
+
+        Utility.printListNodeVal(alg.deleteDuplicates(Utility.ListToListNode(list)));
+
+    }
+
+    @Test
+    public void testA83(){
+        A83_RemoveDuplicatesFromSortedList alg = new A83_RemoveDuplicatesFromSortedList();
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+
+        Utility.printListNodeVal(alg.deleteDuplicates(Utility.ListToListNode(list)));
+
+    }
 }
