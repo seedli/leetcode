@@ -32,6 +32,13 @@ public class Test1 {
     }
 
     @Test
+    public void testA33(){
+        A33_SearchInRotatedSortedArray alg = new A33_SearchInRotatedSortedArray();
+
+        System.out.println(alg.search(new int[]{4,5,6,7,0,1,2}, 2));
+    }
+
+    @Test
     public void testA39(){
         A39_CombinationSum alg = new A39_CombinationSum();
 
