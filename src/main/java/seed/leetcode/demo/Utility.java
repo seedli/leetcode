@@ -12,7 +12,7 @@ public class Utility {
         if(node == null){
             return;
         }
-        ListNode head = new ListNode(0);
+        ListNode head = node;
         while(node != null){
             System.out.print(node.val);
             if(node.next != null){
@@ -31,9 +31,8 @@ public class Utility {
 
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
-            node.next = new ListNode(0);
+            node.next = new ListNode(iterator.next());
             node = node.next;
-            node.val = iterator.next();
         }
         return head.next;
     }
