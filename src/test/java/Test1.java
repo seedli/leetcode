@@ -394,6 +394,13 @@ public class Test1 {
     }
 
     @Test
+    public void testA84(){
+        A84_LargestRectangleInHistogram alg = new A84_LargestRectangleInHistogram();
+
+        System.out.println(alg.largestRectangleArea(new int[]{ 2147483647,0,2147483647,0,2147483647,0,2147483647,0,2147483647,0 }));
+    }
+
+    @Test
     public void testA85(){
         A85_MaximalRectangle alg = new A85_MaximalRectangle();
 
@@ -410,4 +417,19 @@ public class Test1 {
 //                        {'1','0','0','1','0'}
                 }));
     }
+
+    @Test
+    public void testA86(){
+        A86_PartitionList alg = new A86_PartitionList();
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(4);
+        list.add(3);
+        list.add(2);
+        list.add(5);
+        list.add(2);
+
+        Utility.printListNodeVal(alg.partition(Utility.ListToListNode(list), 3));
+    }
+
 }
