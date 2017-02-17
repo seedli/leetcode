@@ -136,6 +136,12 @@ public class Test1 {
     }
 
     @Test
+    public void testA50(){
+        A50_Pow alg = new A50_Pow();
+        System.out.println(alg.myPow(34.00515,-3));
+    }
+
+    @Test
     public void testA53(){
         A53_MaximumSubarray alg = new A53_MaximumSubarray();
         System.out.println(alg.maxSubArray(new int[]{ -45,-2,-71,2,78,98,56,-5,-30,-91,73,-85,10,80,93,76,48,-44,72,-58,-83,20,49,-64,94,18,11,48,16,2,-26,47,99,-21,-50,55,-23,-94,-73,46,-85 }));
@@ -385,5 +391,18 @@ public class Test1 {
 
         Utility.printListNodeVal(alg.deleteDuplicates(Utility.ListToListNode(list)));
 
+    }
+
+    @Test
+    public void testA85(){
+        A85_MaximalRectangle alg = new A85_MaximalRectangle();
+
+        System.out.println(alg.maximalRectangle(new char[][]
+                {
+                        {'1','0','1','0','0'},
+                        {'1','0','1','1','1'},
+                        {'1','1','1','1','1'},
+                        {'1','0','0','1','0'}
+                }));
     }
 }
