@@ -432,4 +432,13 @@ public class Test1 {
         Utility.printListNodeVal(alg.partition(Utility.ListToListNode(list), 3));
     }
 
+    @Test
+    public void testA89(){
+        A89_GrayCode alg = new A89_GrayCode();
+        List<Integer> list = alg.grayCode(2);
+        for(int i: list){
+            System.out.println(i);
+        }
+    }
+
 }
