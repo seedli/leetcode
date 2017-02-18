@@ -117,6 +117,26 @@ public class TestPractices {
         char a = '9';
         System.out.println((int) a);
 
-        System.out.println("+999".substring(1));
+    }
+
+    @Test
+    public void testAA(){
+        Integer Value = new Integer(0);
+        System.out.println(Value.hashCode());
+        String str = new String("ABC");
+        addValue(Value);
+        modString(str);
+        System.out.println(Value);
+        System.out.println(str);
+    }
+
+    public void addValue(Integer Value){
+        System.out.println(Value.hashCode());
+        Value = new Integer(Value+1);
+    }
+
+    public void modString(String str){
+        //System.out.println(str.hashCode());
+        str = "DEF";
     }
 }

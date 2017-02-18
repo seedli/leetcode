@@ -488,4 +488,24 @@ public class Test1 {
         }
     }
 
+    @Test
+    public void testA90(){
+        A90_SubsetsII alg = new A90_SubsetsII();
+
+        List<List<Integer>> list = alg.subsetsWithDup(new int[]{1,2,2,2,2});
+        for(List<Integer> ls : list){
+            for(Integer val : ls){
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void testA91(){
+        A91_DecodeWays alg = new A91_DecodeWays();
+
+        System.out.println(alg.numDecodings("27"));
+    }
+
 }
