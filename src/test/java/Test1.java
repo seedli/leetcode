@@ -18,6 +18,18 @@ public class Test1 {
     }
 
     @Test
+    public void testA8(){
+        A8_StringToInteger alg = new A8_StringToInteger();
+        System.out.println(alg.myAtoi("2147483648"));
+    }
+
+    @Test
+    public void testA11(){
+        A11_ContainerWithMostWater alg = new A11_ContainerWithMostWater();
+        System.out.println(alg.maxArea(new int[]{1,2,4,3}));
+    }
+
+    @Test
     public void testA18(){
         A18_4Sum A18 = new A18_4Sum();
 
@@ -29,6 +41,41 @@ public class Test1 {
             }
             System.out.println();
         }
+    }
+
+    @Test
+    public void testA21(){
+        A21_MergeTwoSortedLists alg = new A21_MergeTwoSortedLists();
+
+        List<Integer> l1 = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        l1.add(1);
+        l1.add(99);
+        l1.add(200);
+
+        l2.add(99);
+        l2.add(100);
+        l2.add(101);
+
+        Utility.printListNodeVal(alg.mergeTwoLists(Utility.ListToListNode(l1), Utility.ListToListNode(l2)));
+    }
+
+    @Test
+    public void testA23(){
+        A23_MergeKSortedLists alg = new A23_MergeKSortedLists();
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        list1.add(1);
+        list1.add(3);
+        list1.add(5);
+        list2.add(2);
+        list2.add(4);
+        list2.add(6);
+        ListNode[] lists = new ListNode[2];
+        lists[0] = Utility.ListToListNode(list1);
+        lists[1] = Utility.ListToListNode(list2);
+
+        Utility.printListNodeVal(alg.mergeKLists(lists));
     }
 
     @Test

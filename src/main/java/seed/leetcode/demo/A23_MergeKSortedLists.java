@@ -8,24 +8,65 @@ import java.util.List;
  */
 public class A23_MergeKSortedLists {
 
-    public static void main(String[] args){
-        List<Integer> list1 = new ArrayList<>();
-        List<Integer> list2 = new ArrayList<>();
-        list1.add(1);
-        list1.add(3);
-        list1.add(5);
-        list2.add(2);
-        list2.add(4);
-        list2.add(6);
-        ListNode[] lists = new ListNode[2];
-        lists[0] = Utility.ListToListNode(list1);
-        lists[1] = Utility.ListToListNode(list2);
+    //TLE
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists.length==0) return null;
+        else if(lists.length==1) return lists[0];
 
-        Utility.printListNodeVal(mergeKLists(lists));
+        ListNode head = new ListNode(0);
+        int smallistIdx = -1;
+        int smallist = Integer.MAX_VALUE;
+        for(int i=0; i<lists.length; i++){
+            if(lists[i] != null && lists[i].val < smallist){
+                smallist = lists[i].val;
+                smallistIdx = i;
+            }
+        }
+        if(smallistIdx == -1) return null;
+
+        head = lists[smallistIdx];
+        for(int i=0; i<lists.length; i++){
+            if(i==smallistIdx) continue;
+            head = mergeTwoLists(head,lists[i]);
+        }
+        return head;
     }
 
-    //Correct but Time Limit Exceeded !! T_T
-    public static ListNode mergeKLists(ListNode[] lists) {
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(l1 == null) return l2;
+        else if(l2 == null) return l1;
+        ListNode head = new ListNode(0); //選用的
+        ListNode node = new ListNode(0); //被拆的
+
+        if(l1.val < l2.val){
+            head = l1;
+            node = l2;
+        }else{
+            head = l2;
+            node = l1;
+        }
+        ListNode realHead = head;
+
+        while(head.next != null && node !=null){
+            if(node.val >= head.val){
+                if(head.next.val > node.val){
+                    ListNode tmpNode = node;
+                    node = node.next;
+                    tmpNode.next = head.next;
+                    head.next = tmpNode;
+                }
+                head = head.next;
+            }
+        }
+        if(node != null){
+            head.next = node;
+        }
+
+        return realHead;
+    }
+
+    //TLE
+    public ListNode mergeKLists_OLD(ListNode[] lists) {
         ListNode theNode = new ListNode(0);
         ListNode head = theNode;
 

@@ -111,4 +111,12 @@ public class TestPractices {
             System.out.println(q.poll());
         }
     }
+
+    @Test
+    public void testCharAscii(){
+        char a = '9';
+        System.out.println((int) a);
+
+        System.out.println("+999".substring(1));
+    }
 }
