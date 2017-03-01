@@ -122,21 +122,25 @@ public class TestPractices {
     @Test
     public void testAA(){
         Integer Value = new Integer(0);
-        System.out.println(Value.hashCode());
         String str = new String("ABC");
+        int[] ary = {1,2,3,4};
         addValue(Value);
         modString(str);
+        modArray(ary);
         System.out.println(Value);
         System.out.println(str);
+        System.out.println(Arrays.toString(ary));
     }
 
     public void addValue(Integer Value){
-        System.out.println(Value.hashCode());
-        Value = new Integer(Value+1);
+        Value = Value+1;
     }
 
     public void modString(String str){
-        //System.out.println(str.hashCode());
-        str = "DEF";
+        str = new String("DEF");
+    }
+
+    public void modArray(int[] ary){
+        ary[3] = 5;
     }
 }
