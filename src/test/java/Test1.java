@@ -508,4 +508,17 @@ public class Test1 {
         System.out.println(alg.numDecodings("27"));
     }
 
+    @Test
+    public void testA92(){
+        A92_ReverseLinkedListII alg = new A92_ReverseLinkedListII();
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+
+        ListNode node = alg.reverseBetween(Utility.ListToListNode(list), 1, 4);
+        //Utility.printListNodeVal(node);
+    }
+
 }
