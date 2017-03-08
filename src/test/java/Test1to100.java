@@ -521,4 +521,14 @@ public class Test1to100 {
         Utility.printListNodeVal(node);
     }
 
+    @Test
+    public void testA93(){
+        A93_RestoreIPAddresses alg = new A93_RestoreIPAddresses();
+        String ip = "010010";
+        List<String> result = alg.restoreIpAddresses(ip);
+        for(String s: result){
+            System.out.println(s);
+        }
+    }
+
 }
