@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by User on 2017/2/8.
  */
-public class Test1 {
+public class Test1to100 {
 
     @Test
     public void testA5(){
@@ -518,7 +518,7 @@ public class Test1 {
         list.add(4);
 
         ListNode node = alg.reverseBetween(Utility.ListToListNode(list), 1, 4);
-        //Utility.printListNodeVal(node);
+        Utility.printListNodeVal(node);
     }
 
 }
