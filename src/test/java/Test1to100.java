@@ -531,4 +531,27 @@ public class Test1to100 {
         }
     }
 
+    @Test
+    public void testA94(){
+        A94_BinaryTreeInorderTraversal alg = new A94_BinaryTreeInorderTraversal();
+        TreeNode T0 = new TreeNode(0);
+        TreeNode T1 = new TreeNode(1);
+        TreeNode T2 = new TreeNode(2);
+        TreeNode T3 = new TreeNode(3);
+        TreeNode T4 = new TreeNode(4);
+        TreeNode T5 = new TreeNode(5);
+
+        T0.left =T1;
+        T0.right =T2;
+        T1.left = T3;
+        T1.right =T4;
+        T3.left = T5;
+
+        List<Integer> list = alg.inorderTraversal(T0);
+
+        for(int i: list){
+            System.out.print(i+" ");
+        }
+    }
+
 }
