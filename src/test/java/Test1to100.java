@@ -1,10 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 import seed.leetcode.demo.*;
+import seed.leetcode.demo.A1to100.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -558,6 +558,28 @@ public class Test1to100 {
     public void testA96(){
         A96_UniqueBinarySearchTrees alg = new A96_UniqueBinarySearchTrees();
         System.out.println(alg.numTrees(4));
+    }
+
+    @Test
+    public void testA98(){
+        A98_ValidateBinarySearchTree alg = new A98_ValidateBinarySearchTree();
+        TreeNode T0 = new TreeNode(0);
+        TreeNode T1 = new TreeNode(1);
+        TreeNode T2 = new TreeNode(2);
+        TreeNode T3 = new TreeNode(3);
+        TreeNode T4 = new TreeNode(4);
+        TreeNode T5 = new TreeNode(5);
+        TreeNode T6 = new TreeNode(6);
+        TreeNode T7 = new TreeNode(7);
+
+        T4.left = T2;
+        T4.right = T6;
+        T2.left = T1;
+        T2.right = T3;
+        T6.left = T5;
+        T6.right = T7;
+
+        System.out.println(alg.isValidBST(T4));
     }
 
     @Test
