@@ -1,6 +1,9 @@
 import org.junit.Test;
 import seed.leetcode.demo.A101to200.A101_SymmetricTree;
+import seed.leetcode.demo.A101to200.A102_BinaryTreeLevelOrderTraversal;
+import seed.leetcode.demo.A101to200.A103_BinaryTreeZigzagLevelOrderTraversal;
 import seed.leetcode.demo.TreeNode;
+import java.util.List;
 
 /**
  * Created by seedli on 2017/3/14.
@@ -25,6 +28,64 @@ public class Test101to200 {
         T3.right = T7;
 
         System.out.println(new A101_SymmetricTree().isSymmetric(T1));
+    }
+
+    @Test
+    public void testA102(){
+        TreeNode T1 = new TreeNode(1);
+        TreeNode T2 = new TreeNode(2);
+        TreeNode T3 = new TreeNode(2);
+        TreeNode T4 = new TreeNode(3);
+        TreeNode T5 = new TreeNode(4);
+        TreeNode T6 = new TreeNode(4);
+        TreeNode T7 = new TreeNode(3);
+
+        T1.left = T2;
+        T1.right = T3;
+        T2.left = T4;
+        T2.right = T5;
+        T3.left = T6;
+        T3.right = T7;
+
+        List<List<Integer>> list = new A102_BinaryTreeLevelOrderTraversal().levelOrder(T1);
+
+        for(List<Integer> ls : list){
+            for(int i : ls){
+                System.out.print(i+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void testA103(){
+        TreeNode T1 = new TreeNode(1);
+        TreeNode T2 = new TreeNode(2);
+        TreeNode T3 = new TreeNode(3);
+        TreeNode T4 = new TreeNode(4);
+        TreeNode T5 = new TreeNode(5);
+        TreeNode T6 = new TreeNode(6);
+        TreeNode T7 = new TreeNode(7);
+        TreeNode T8 = new TreeNode(8);
+        TreeNode T9 = new TreeNode(9);
+
+        T1.left = T2;
+        T1.right = T3;
+        T2.left = T4;
+        T2.right = T5;
+        T3.left = T6;
+        T3.right = T7;
+        T6.left = T8;
+        T7.left = T9;
+
+        List<List<Integer>> list = new A103_BinaryTreeZigzagLevelOrderTraversal().zigzagLevelOrder(T1);
+
+        for(List<Integer> ls : list){
+            for(int i : ls){
+                System.out.print(i+" ");
+            }
+            System.out.println();
+        }
     }
 
 }
