@@ -85,6 +85,20 @@ public class Test1to100 {
     }
 
     @Test
+    public void testA29(){
+        A29_DivideTwoIntegers alg = new A29_DivideTwoIntegers();
+        System.out.println(alg.divide(Integer.MIN_VALUE , 2));
+    }
+
+    @Test
+    public void testA31(){
+        A31_NextPermutation alg = new A31_NextPermutation();
+        int[] arr = new int[]{4,5,7,3,9,8};
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(alg.nextPermutation(arr)));
+    }
+
+    @Test
     public void testA33(){
         A33_SearchInRotatedSortedArray alg = new A33_SearchInRotatedSortedArray();
 
@@ -152,14 +166,6 @@ public class Test1to100 {
             }
             System.out.println();
         }
-    }
-
-    @Test
-    public void testA31(){
-        A31_NextPermutation alg = new A31_NextPermutation();
-        int[] arr = new int[]{4,5,7,3,9,8};
-        System.out.println(Arrays.toString(arr));
-        System.out.println(Arrays.toString(alg.nextPermutation(arr)));
     }
 
     @Test
