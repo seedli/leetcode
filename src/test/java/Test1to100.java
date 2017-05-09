@@ -13,6 +13,12 @@ import java.util.List;
 public class Test1to100 {
 
     @Test
+    public void testA3(){
+        A3_LongestSubstringWithoutRepeatingCharacters alg = new A3_LongestSubstringWithoutRepeatingCharacters();
+        System.out.println(alg.lengthOfLongestSubstring("pwwkew"));
+    }
+
+    @Test
     public void testA5(){
         Assert.assertNotNull(A5_LongestPalindromicSubstring.longestPalindrome("mississipi"));
     }
