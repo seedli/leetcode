@@ -1,8 +1,5 @@
 import org.junit.Test;
-import seed.leetcode.demo.A101to200.A101_SymmetricTree;
-import seed.leetcode.demo.A101to200.A102_BinaryTreeLevelOrderTraversal;
-import seed.leetcode.demo.A101to200.A103_BinaryTreeZigzagLevelOrderTraversal;
-import seed.leetcode.demo.A101to200.A104_MaximumDepthOfBinaryTree;
+import seed.leetcode.demo.A101to200.*;
 import seed.leetcode.demo.TreeNode;
 import java.util.List;
 
@@ -111,6 +108,16 @@ public class Test101to200 {
         T7.left = T9;
 
         System.out.println(new A104_MaximumDepthOfBinaryTree().maxDepth(T1));
+    }
+
+    @Test
+    public void testA112(){
+        TreeNode T1 = new TreeNode(1);
+        TreeNode T2 = new TreeNode(2);
+
+        T1.left = T2;
+        //System.out.println(new A112_PathSum().hasPathSum(T1, 10));
+        System.out.println(new A112_PathSum().hasPathSum(T1, 1));
     }
 
 }

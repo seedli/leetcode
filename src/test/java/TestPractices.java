@@ -1,9 +1,6 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 
 /**
@@ -130,6 +127,18 @@ public class TestPractices {
         System.out.println(Value);
         System.out.println(str);
         System.out.println(Arrays.toString(ary));
+    }
+
+    @Test
+    public void testHashMap(){
+        Map<Integer, String> map = new HashMap<>();
+
+        map.put(1,"abc");
+        map.put(1,"def");
+
+        System.out.println(map.get(1));
+        System.out.println(map.size());
+        System.out.println("map = " + map);
     }
 
     public void addValue(Integer Value){
