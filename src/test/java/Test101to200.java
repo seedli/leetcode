@@ -1,6 +1,9 @@
 import org.junit.Test;
 import seed.leetcode.demo.A101to200.*;
 import seed.leetcode.demo.TreeNode;
+import seed.leetcode.demo.Utility;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -118,6 +121,26 @@ public class Test101to200 {
         T1.left = T2;
         //System.out.println(new A112_PathSum().hasPathSum(T1, 10));
         System.out.println(new A112_PathSum().hasPathSum(T1, 1));
+    }
+
+    @Test
+    public void testA113(){
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(-2);
+        list.add(null);
+        list.add(-3);
+
+        TreeNode root = Utility.ListToTreeNode(list);
+
+        List<List<Integer>> result = new A113_PathSumII().pathSum(root, -2);
+
+        for(List<Integer> ls : result){
+
+            for(Integer i : ls){
+                System.out.print(i + " ");
+            }
+            System.out.println("\r\n");
+        }
     }
 
 }

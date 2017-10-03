@@ -1,4 +1,6 @@
 import org.junit.Test;
+import seed.leetcode.demo.TreeNode;
+import seed.leetcode.demo.Utility;
 
 import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -139,6 +141,28 @@ public class TestPractices {
         System.out.println(map.get(1));
         System.out.println(map.size());
         System.out.println("map = " + map);
+    }
+
+    @Test
+    public void testListToTreeNode(){
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(5);
+        list.add(4);
+        list.add(8);
+        list.add(11);
+        list.add(null);
+        list.add(13);
+        list.add(4);
+        list.add(7);
+        list.add(2);
+        list.add(null);
+        list.add(null);
+        list.add(5);
+        list.add(1);
+
+        TreeNode root = Utility.ListToTreeNode(list);
+
+        System.out.println(root.val);
     }
 
     public void addValue(Integer Value){
