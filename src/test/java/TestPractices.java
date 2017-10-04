@@ -152,4 +152,18 @@ public class TestPractices {
     public void modArray(int[] ary){
         ary[3] = 5;
     }
+
+    @Test
+    public void testFn1(){
+        System.out.println(sumByEachDigit(12345));
+    }
+
+    public int sumByEachDigit(int input){
+        if(input <= 9){
+            return input;
+        }else{
+            return (input % 10) + sumByEachDigit(input / 10);
+        }
+
+    }
 }
