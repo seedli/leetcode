@@ -573,6 +573,17 @@ public class Test1to100 {
     }
 
     @Test
+    public void testA97(){
+        A97_InterleavingString alg = new A97_InterleavingString();
+        //System.out.println(alg.isInterleave("aabcc", "dbbca", "aadbbcbcac"));
+        System.out.println(alg.isInterleave(
+                "bbbbbabbbbabaababaaaabbababbaaabbabbaaabaaaaababbbababbbbbabbbbababbabaabababbbaabababababbbaaababaa",
+                "babaaaabbababbbabbbbaabaabbaabbbbaabaaabaababaaaabaaabbaaabaaaabaabaabbbbbbbbbbbabaaabbababbabbabaab",
+                "babbbabbbaaabbababbbbababaabbabaabaaabbbbabbbaaabbbaaaaabbbbaabbaaabababbaaaaaabababbababaababbababbbababbbbaaaabaabbabbaaaaabbabbaaaabbbaabaaabaababaababbaaabbbbbabbbbaabbabaabbbbabaaabbababbabbabbab"
+        ));
+    }
+
+    @Test
     public void testA98(){
         A98_ValidateBinarySearchTree alg = new A98_ValidateBinarySearchTree();
         TreeNode T0 = new TreeNode(0);
