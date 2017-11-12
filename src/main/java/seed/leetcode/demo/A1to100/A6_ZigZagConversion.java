@@ -9,14 +9,14 @@ import java.util.List;
 public class A6_ZigZagConversion {
     public String convert(String s, int numRows) {
 
-        List<List<String>> ListZigZag = new ArrayList<List<String>>(numRows);
+        List<List<String>> ListZigZag = new ArrayList<>(numRows);
         status Status = status.foward;
 
         char[] aryS = s.toCharArray();
         int RowIdx = 0;
 
         for(int i = 0; i<numRows; i++){
-            ListZigZag.add(new ArrayList<String>());
+            ListZigZag.add(new ArrayList<>());
         }
 
         for(int i = 0; i<s.length(); i++){

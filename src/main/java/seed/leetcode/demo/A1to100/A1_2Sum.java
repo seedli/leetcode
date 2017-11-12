@@ -1,5 +1,9 @@
 package seed.leetcode.demo.A1to100;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by User on 2017/2/8.
  */
@@ -17,5 +21,30 @@ public class A1_2Sum {
             }
         }
         return result;
+    }
+
+    public int[] twoSum2(int[] numbers, int target) {
+        int[] result = new int[2];
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < numbers.length; i++) {
+            if (map.containsKey(target - numbers[i])) {
+                result[1] = i;
+                result[0] = map.get(target - numbers[i]);
+                return result;
+            }
+            map.put(numbers[i], i);
+        }
+        return result;
+    }
+
+    public static void main(String[] args){
+        A1_2Sum alg = new A1_2Sum();
+
+        int[] input = {2, 7, 11, 15};
+        int target = 17;
+
+        int[] result = alg.twoSum2(input, target);
+
+        System.out.println( Arrays.toString(result) );
     }
 }

@@ -15,12 +15,19 @@ public class Test1to100 {
     @Test
     public void testA3(){
         A3_LongestSubstringWithoutRepeatingCharacters alg = new A3_LongestSubstringWithoutRepeatingCharacters();
-        System.out.println(alg.lengthOfLongestSubstring("pwwkew"));
+        System.out.println(alg.lengthOfLongestSubstring2("abcabcbb"));
     }
 
     @Test
     public void testA5(){
         Assert.assertNotNull(A5_LongestPalindromicSubstring.longestPalindrome("mississipi"));
+    }
+
+    @Test
+    public void testA6(){
+        A6_ZigZagConversion alg = new A6_ZigZagConversion();
+
+        System.out.println(alg.convert("PAYPALISHIRING", 3));
     }
 
     @Test
@@ -102,7 +109,7 @@ public class Test1to100 {
     public void testA33(){
         A33_SearchInRotatedSortedArray alg = new A33_SearchInRotatedSortedArray();
 
-        System.out.println(alg.search(new int[]{4,5,6,7,0,1,2}, 2));
+        System.out.println(alg.search(new int[]{4,5,6,7,0,1,2}, 0));
     }
 
     @Test
@@ -229,7 +236,7 @@ public class Test1to100 {
 
         List<Interval> list = new ArrayList<>();
         list.add(new Interval(1,4));
-        list.add(new Interval(5,6));
+        list.add(new Interval(2,3));
 
         List<Interval> result = alg.merge(list);
 

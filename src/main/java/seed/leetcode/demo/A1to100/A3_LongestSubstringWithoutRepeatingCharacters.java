@@ -1,5 +1,6 @@
 package seed.leetcode.demo.A1to100;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import java.util.Set;
 public class A3_LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring(String s) {
-        Set<Character> KeySet = new HashSet<Character>();
+        Set<Character> KeySet = new HashSet<>();
         if(s.length() > 0){
             int LongestLength = 1;
             char[] aryS = s.toCharArray();
@@ -29,6 +30,20 @@ public class A3_LongestSubstringWithoutRepeatingCharacters {
         }else{
             return 0;
         }
+    }
+
+    public int lengthOfLongestSubstring2(String s) {
+        if (s.length()==0) return 0;
+        HashMap<Character, Integer> map = new HashMap<>();
+        int max=0;
+        for (int i=0, j=0; i<s.length(); ++i){
+            if (map.containsKey(s.charAt(i))){
+                j = Math.max(j,map.get(s.charAt(i))+1);
+            }
+            map.put(s.charAt(i),i);
+            max = Math.max(max,i-j+1);
+        }
+        return max;
     }
 
 }

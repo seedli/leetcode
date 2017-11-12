@@ -36,7 +36,7 @@ public class A34_SearchForARange {
         result[0] = idx;
 
 
-        start = 0;
+        start = idx;
         end = nums.length-1;
 
         //find the last value of the array

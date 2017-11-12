@@ -2,10 +2,7 @@ package seed.leetcode.demo.A1to100;
 
 import seed.leetcode.demo.Interval;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -24,7 +21,13 @@ public class A56_MergeIntervals {
                 if(object1.start > object2.start) {
                     return 1;
                 }else if(object1.start == object2.start){
-                    return 0;
+                    if(object1.end > object2.end){
+                        return 1;
+                    }else if(object1.end < object2.end){
+                        return -1;
+                    }else{
+                        return 0;
+                    }
                 }else{
                     return -1;
                 }
@@ -33,38 +36,24 @@ public class A56_MergeIntervals {
 
         List<Interval> result = new LinkedList<>();
 
-        int fromIdx = 0;
-        int toIdx = 0;
-        int start = 0;
+        int start = intervals.get(0).start;
         int end = intervals.get(0).end;
-        boolean gotEnd = false;
 
-        while(fromIdx < intervals.size() && toIdx < intervals.size()){
-            Interval from = intervals.get(fromIdx);
-            Interval to = intervals.get(toIdx);
+        Iterator<Interval> it = intervals.iterator();
+        it.next();
 
-            start = from.start;
-
-            if(end >= to.start){
-                if(end >= to.end){ //eat
-                    end = end; // do nothing
-                }else{ //merge
-                    end = to.end;
-                }
-                if(toIdx+1 >= intervals.size()){
-                    gotEnd = true;
-                }else{
-                    toIdx++;
-                }
-            }else if(end < to.start){
-                result.add(new Interval(start,end));
-                fromIdx = toIdx;
-                end = intervals.get(toIdx).end;
+        while(it.hasNext()){
+            Interval nextInterval = it.next();
+            if(end < nextInterval.start){
+                result.add(new Interval(start, end));
+                start = nextInterval.start;
+                end = nextInterval.end;
+            }else if(end >= nextInterval.start && end < nextInterval.end){
+                end = nextInterval.end;
             }
 
-            if(gotEnd){
-                result.add(new Interval(start,end));
-                break;
+            if( ! it.hasNext()){
+                result.add(new Interval(start, end));
             }
         }
 
