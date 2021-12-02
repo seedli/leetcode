@@ -5,10 +5,10 @@ import seed.leetcode.demo.TreeNode;
 
 public class A109_ConvertSortedListToBinarySearchTree {
 	public TreeNode sortedListToBST(ListNode head) {
-		return makeBSTTree(head);
+		return makeBST(head);
 	}
 
-	private TreeNode makeBSTTree(ListNode head) {
+	private TreeNode makeBST(ListNode head) {
 		if (head == null)
 			return null;
 		if (head.next == null)
@@ -37,8 +37,8 @@ public class A109_ConvertSortedListToBinarySearchTree {
 			prev.next = null;
 		}
 
-		root.left = makeBSTTree(node1);
-		root.right = makeBSTTree(head.next);
+		root.left = makeBST(node1);
+		root.right = makeBST(head.next);
 
 		return root;
 	}
