@@ -14,7 +14,7 @@ public class A109_ConvertSortedListToBinarySearchTree {
 		if (head.next == null)
 			return new TreeNode(head.val);
 
-		ListNode node1 = head;
+		ListNode leftHead = head;
 
 		// find the middle listNode
 		int count = 0;
@@ -23,21 +23,21 @@ public class A109_ConvertSortedListToBinarySearchTree {
 			head = head.next;
 		}
 		count = count / 2;
-		head = node1;
-		ListNode prev = null;
+		head = leftHead;
+		ListNode prior = null;
 		for (int i = 0; i < count; i++) {
-			prev = head;
+			prior = head;
 			head = head.next;
+		}
+
+		// cut the list
+		if (prior != null) {
+			prior.next = null;
 		}
 
 		TreeNode root = new TreeNode(head.val);
 
-		// cut the list
-		if (prev != null) {
-			prev.next = null;
-		}
-
-		root.left = makeBST(node1);
+		root.left = makeBST(leftHead);
 		root.right = makeBST(head.next);
 
 		return root;
