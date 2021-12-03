@@ -27,20 +27,23 @@ public class A401_BinaryWatch {
 
 	private void constructLEDNums() {
 		for (int i = 0; i < 60; i++)
-			LEDNums.put(i, getLights(i));
+			LEDNums.put(i, getLEDs(i));
 	}
 
 	private int getLEDs(int hour, int minute) {
 		return LEDNums.get(hour) + LEDNums.get(minute);
 	}
 
-	private int getLights(int num) {
+	private int getLEDs(int num) {
 		if (num == 1)
 			return 1;
 		if (num == 0)
 			return 0;
 
-		return num % 2 + getLights(num / 2);
+		if (LEDNums.containsKey(num))
+			return LEDNums.get(num);
+		else
+			return num % 2 + getLEDs(num / 2);
 	}
 
 }
