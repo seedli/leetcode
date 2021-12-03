@@ -7,25 +7,31 @@ import java.util.Map;
 
 public class A401_BinaryWatch {
 
-	private Map<Integer, List<String>> lightTimeMap = new HashMap<Integer, List<String>>();
+	private Map<Integer, Integer> LEDNums = new HashMap<Integer, Integer>();
 
-	public A401_BinaryWatch() {
-		for (int i = 0; i <= 10; i++)
-			lightTimeMap.put(i, new ArrayList<String>());
+	public List<String> readBinaryWatch(int turnedOn) {
 
-		constructLightTimeMap();
-	}
+		constructLEDNums();
 
-	private void constructLightTimeMap() {
+		List<String> result = new ArrayList<String>();
+
 		for (int hour = 0; hour < 12; hour++) {
 			for (int minute = 0; minute < 60; minute++) {
-				getLights(hour, minute);
+				if (getLEDs(hour, minute) == turnedOn)
+					result.add(hour + ":" + String.format("%02d", minute));
 			}
 		}
+
+		return result;
 	}
 
-	private void getLights(int hour, int minute) {
-		lightTimeMap.get(getLights(hour) + getLights(minute)).add(hour + ":" + String.format("%02d", minute));
+	private void constructLEDNums() {
+		for (int i = 0; i < 60; i++)
+			LEDNums.put(i, getLights(i));
+	}
+
+	private int getLEDs(int hour, int minute) {
+		return LEDNums.get(hour) + LEDNums.get(minute);
 	}
 
 	private int getLights(int num) {
@@ -37,7 +43,4 @@ public class A401_BinaryWatch {
 		return num % 2 + getLights(num / 2);
 	}
 
-	public List<String> readBinaryWatch(int turnedOn) {
-		return lightTimeMap.get(turnedOn);
-	}
 }
