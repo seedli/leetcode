@@ -25,14 +25,16 @@ public class A401_BinaryWatch {
 	}
 
 	private void getLights(int hour, int minute) {
-		String bHour = Integer.toBinaryString(hour);
-		String bMinute = Integer.toBinaryString(minute);
-
-		lightTimeMap.get(getLights(bHour) + getLights(bMinute)).add(hour + ":" + String.format("%02d", minute));
+		lightTimeMap.get(getLights(hour) + getLights(minute)).add(hour + ":" + String.format("%02d", minute));
 	}
 
-	private int getLights(String binaryString) {
-		return binaryString.replaceAll("0", "").length();
+	private int getLights(int num) {
+		if (num == 1)
+			return 1;
+		if (num == 0)
+			return 0;
+
+		return num % 2 + getLights(num / 2);
 	}
 
 	public List<String> readBinaryWatch(int turnedOn) {
