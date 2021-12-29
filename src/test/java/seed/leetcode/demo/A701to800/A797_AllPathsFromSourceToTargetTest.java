@@ -15,17 +15,17 @@ public class A797_AllPathsFromSourceToTargetTest {
 		result = a.allPathsSourceTarget(new int[][] { { 4, 3, 1 }, { 3, 2, 4 }, { 3 }, { 4 }, {} });
 		printResult(result);
 
-//		result = a.allPathsSourceTarget(new int[][] { { 1, 2, 3, 4 }, {}, {}, {}, {} });
-//		printResult(result);
-//
-//		result = a.allPathsSourceTarget(new int[][] { {} });
-//		printResult(result);
-//
-//		result = a.allPathsSourceTarget(new int[][] { { 4, 3, 1 }, { 3, 2, 4 }, {}, { 4 }, {} });
-//		printResult(result);
-//
-//		result = a.allPathsSourceTarget(new int[][] { { 2 }, {}, { 1 } });
-//		printResult(result);
+		result = a.allPathsSourceTarget(new int[][] { { 1, 2, 3, 4 }, {}, {}, {}, {} });
+		printResult(result);
+
+		result = a.allPathsSourceTarget(new int[][] { {} });
+		printResult(result);
+
+		result = a.allPathsSourceTarget(new int[][] { { 4, 3, 1 }, { 3, 2, 4 }, {}, { 4 }, {} });
+		printResult(result);
+
+		result = a.allPathsSourceTarget(new int[][] { { 2 }, {}, { 1 } });
+		printResult(result);
 	}
 
 	private void printResult(List<List<Integer>> result) {
