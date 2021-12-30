@@ -10,70 +10,85 @@ import java.util.Queue;
  */
 public class Utility {
 
-    public static void printListNodeVal(ListNode node){
-        if(node == null) return;
-        ListNode head = node;
-        while(node != null){
-            System.out.print(node.val);
-            if(node.next != null){
-                System.out.print("->");
-            }
-            node = node.next;
-        }
-        node = head;
-        System.out.println();
-    }
+	public static void printListNodeVal(ListNode node) {
+		if (node == null)
+			return;
+		ListNode head = node;
+		while (node != null) {
+			System.out.print(node.val);
+			if (node.next != null) {
+				System.out.print("->");
+			}
+			node = node.next;
+		}
+		node = head;
+		System.out.println();
+	}
 
-    public static ListNode ListToListNode(List list){
-        ListNode node = new ListNode(0);
-        ListNode head = node;
-        if(list.size() == 0) return null;
+	public static TreeNode arrayToTree(Integer array[]) {
+		return arrayToTree(array, 0);
+	}
 
-        Iterator<Integer> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            node.next = new ListNode(iterator.next());
-            node = node.next;
-        }
-        return head.next;
-    }
+	public static TreeNode arrayToTree(Integer array[], int index) {
+		if (index >= array.length)
+			return null;
+		if (array[index] == null)
+			return null;
+		return new TreeNode(array[index], arrayToTree(array, index * 2 + 1), arrayToTree(array, index * 2 + 2));
+	}
 
-    public static TreeNode ListToTreeNode(List<Integer> list){
-        if(list.size() == 0) return null;
+	public static ListNode ListToListNode(List list) {
+		ListNode node = new ListNode(0);
+		ListNode head = node;
+		if (list.size() == 0)
+			return null;
 
-        Queue<TreeNode> setUpQueue = new LinkedList<>();
-        TreeNode root = new TreeNode(list.get(0));
-        list.remove(0);
-        setUpQueue.add(root);
+		Iterator<Integer> iterator = list.iterator();
+		while (iterator.hasNext()) {
+			node.next = new ListNode(iterator.next());
+			node = node.next;
+		}
+		return head.next;
+	}
 
-        Iterator<Integer> itr = list.iterator();
+	public static TreeNode ListToTreeNode(List<Integer> list) {
+		if (list.size() == 0)
+			return null;
 
-        while(itr.hasNext()){
-            TreeNode node = setUpQueue.poll();
+		Queue<TreeNode> setUpQueue = new LinkedList<>();
+		TreeNode root = new TreeNode(list.get(0));
+		list.remove(0);
+		setUpQueue.add(root);
 
-            //set left
-            if(itr.hasNext()){
-                Integer val = itr.next();
-                if(val == null){
-                    node.left = null;
-                }else{
-                    node.left = new TreeNode(val);
-                    setUpQueue.add(node.left);
-                }
-            }
+		Iterator<Integer> itr = list.iterator();
 
-            //set right
-            if(itr.hasNext()){
-                Integer val = itr.next();
-                if(val == null){
-                    node.right = null;
-                }else{
-                    node.right = new TreeNode(val);
-                    setUpQueue.add(node.right);
-                }
-            }
-        }
+		while (itr.hasNext()) {
+			TreeNode node = setUpQueue.poll();
 
-        return root;
-    }
+			// set left
+			if (itr.hasNext()) {
+				Integer val = itr.next();
+				if (val == null) {
+					node.left = null;
+				} else {
+					node.left = new TreeNode(val);
+					setUpQueue.add(node.left);
+				}
+			}
+
+			// set right
+			if (itr.hasNext()) {
+				Integer val = itr.next();
+				if (val == null) {
+					node.right = null;
+				} else {
+					node.right = new TreeNode(val);
+					setUpQueue.add(node.right);
+				}
+			}
+		}
+
+		return root;
+	}
 
 }
