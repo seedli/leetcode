@@ -2,10 +2,10 @@ package seed.leetcode.demo.A1901to2000;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class A1981_MinimizeTheDifferenceBetweenTargetAndChosenElements {
 
-	// TLE
 	public int minimizeTheDifference(int[][] mat, int target) {
 
 		Set<Integer> dp = new HashSet<>();
@@ -24,10 +24,13 @@ public class A1981_MinimizeTheDifferenceBetweenTargetAndChosenElements {
 					}
 				}
 			}
-			if (tmp != null)
-				dp = tmp;
+			if (tmp != null) {
+				int max_over = tmp.stream().filter(v -> v < 0).mapToInt(v -> v).max().orElse(Integer.MIN_VALUE);
+				dp = tmp.stream().filter(v -> v >= max_over).collect(Collectors.toSet());
+			}
 		}
 
 		return dp.stream().map(Math::abs).mapToInt(v -> v).min().orElseThrow();
 	}
+
 }
