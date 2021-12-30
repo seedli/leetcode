@@ -1,25 +1,57 @@
 package seed.leetcode.demo.A1501to1600;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class A1584_MinCostToConnectAllPoints {
 
-	// TODO solve it !!!!!
-
+	// Passed, longer execution time, but memory saving.
 	public int minCostConnectPoints(int[][] points) {
 		if (points.length < 2)
 			return 0;
 
 		int[][] map = new int[points.length][points.length];
-		boolean[][] connected = new boolean[points.length][points.length];
 		calculateDists(map, points);
 
-		int res = backTracking(points, 0, connected, map);
+		List<Integer> unconnected = new LinkedList<>();
+		for (int i = 1; i < points.length; i++)
+			unconnected.add(i);
 
-		return res;
+		List<Integer> connected = new ArrayList<>();
+		connected.add(0); // pick 0 into the tree
+
+		return backTracking(points, unconnected, connected, map);
+	}
+
+	private int backTracking(int[][] points, List<Integer> unconnected, List<Integer> connected, int[][] map) {
+		if (unconnected.size() == 0)
+			return 0;
+
+		int point = -1;
+		int shortest = Integer.MAX_VALUE;
+
+		// find shortest edge and pick a point into the connected tree
+		for (int u : unconnected) {
+			for (int c : connected) {
+				if (u != c && map[u][c] < shortest) {
+					point = u;
+					shortest = map[u][c];
+				}
+			}
+		}
+
+		if (point != -1) {
+			unconnected.remove((Integer) point);
+			connected.add(point);
+		}
+
+		return shortest + backTracking(points, unconnected, connected, map);
 	}
 
 	private void calculateDists(int[][] map, int[][] points) {
 		for (int i = 0; i < points.length; i++) {
-			for (int j = 0; j < points.length; j++) {
+			for (int j = i; j < points.length; j++) {
 				if (i != j) {
 					int dist = cal(points[i], points[j]);
 					map[i][j] = dist;
@@ -27,36 +59,6 @@ public class A1584_MinCostToConnectAllPoints {
 				}
 			}
 		}
-	}
-
-	private int backTracking(int[][] points, int currentIdx, boolean[][] connected, int[][] map) {
-		if (currentIdx > points.length - 1)
-			return 0;
-
-		int cost = Integer.MAX_VALUE;
-		int targetIdx = currentIdx;
-		// find shortest cost
-		for (int i = 0; i < points.length; i++) {
-			if (currentIdx == i)
-				continue;
-
-			int tmp = map[currentIdx][i];
-			if (tmp < cost) {
-				targetIdx = i;
-				cost = tmp;
-			}
-		}
-		if (cost == Integer.MAX_VALUE)
-			return 0;
-
-		if (targetIdx != currentIdx && !connected[currentIdx][targetIdx]) {
-			connected[currentIdx][targetIdx] = true;
-			connected[targetIdx][currentIdx] = true;
-		} else {
-			cost = 0;
-		}
-
-		return cost + backTracking(points, currentIdx + 1, connected, map);
 	}
 
 	private int cal(int[] p1, int[] p2) {
