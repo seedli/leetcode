@@ -12,32 +12,36 @@ public class A213_HouseRobberII {
 		if (nums.length == 3)
 			return Math.max(Math.max(nums[0], nums[1]), nums[2]);
 
-		// {1,2,3,4}
+		// e.g. all houses {1,2,3,4}
 
-		// {1,2,3}
+		// start from robbing 1st house e.g. {1,2,3}
 		int[] arrRobFirstHouse = Arrays.copyOfRange(nums, 0, nums.length - 1);
-		// {2,3,4}
+		// start from robbing 2nd house e.g. {2,3,4}
 		int[] arrRobSecondHouse = Arrays.copyOfRange(nums, 1, nums.length);
 
-		return Math.max(justRob(arrRobFirstHouse), justRob(arrRobSecondHouse));
+		return Math.max(subRub(arrRobFirstHouse), subRub(arrRobSecondHouse));
 	}
 
 	/**
 	 * @see seed.leetcode.demo.A0101to0200.A198_HouseRobber
 	 */
-	public int justRob(int[] nums) {
-		int[] dp = new int[nums.length];
+	public int subRub(int[] nums) {
+		int curr, prev1, prev2, prev3;
+		curr = prev1 = prev2 = prev3 = 0;
 
 		for (int i = 0; i < nums.length; i++) {
 			if (i == 0 || i == 1) {
-				dp[i] = nums[i];
+				curr = nums[i];
 			} else if (i == 2) {
-				dp[i] = nums[0] + nums[2];
+				curr = nums[0] + nums[2];
 			} else {
-				dp[i] = Math.max(nums[i] + dp[i - 2], nums[i] + dp[i - 3]);
+				curr = Math.max(nums[i] + prev2, nums[i] + prev3);
 			}
+			prev3 = prev2;
+			prev2 = prev1;
+			prev1 = curr;
 		}
 
-		return Math.max(dp[dp.length - 1], dp[dp.length - 2]);
+		return Math.max(prev1, prev2);
 	}
 }

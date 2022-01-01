@@ -11,19 +11,24 @@ public class A198_HouseRobber {
 		if (nums.length == 2)
 			return Math.max(nums[0], nums[1]);
 
-		int[] dp = new int[nums.length];
+		// dynamically record 4 records
+		int curr, prev1, prev2, prev3;
+		curr = prev1 = prev2 = prev3 = 0;
 
 		for (int i = 0; i < nums.length; i++) {
 			if (i == 0 || i == 1) {
-				dp[i] = nums[i];
+				curr = nums[i];
 			} else if (i == 2) {
-				dp[i] = nums[0] + nums[2];
+				curr = nums[0] + nums[2];
 			} else {
-				dp[i] = Math.max(nums[i] + dp[i - 2], nums[i] + dp[i - 3]);
+				curr = Math.max(nums[i] + prev2, nums[i] + prev3);
 			}
+			prev3 = prev2;
+			prev2 = prev1;
+			prev1 = curr;
 		}
 
-		return Math.max(dp[dp.length - 1], dp[dp.length - 2]);
+		return Math.max(prev1, prev2);
 	}
 
 	// =============== TLE =============

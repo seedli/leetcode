@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import seed.leetcode.demo.A0101to0200.A198_HouseRobber;
-
 public class A198_HouseRobberTest {
 
 	@Test
