@@ -30,6 +30,7 @@ public class A1291_SequentialDigits {
 		else {
 			char[] cs = String.valueOf(num).toCharArray();
 
+			// 7911, 10-4=6 < 7, can not generate 4 digits start with 7
 			if (10 - cs.length < Integer.valueOf(Character.getNumericValue(cs[0]))) {
 				return genSequentialDigits(cs.length + 1, 1);
 			} else {
@@ -37,7 +38,7 @@ public class A1291_SequentialDigits {
 				if (tmp > num) {
 					return tmp;
 				} else {
-					if (cs.length + Integer.valueOf(Character.getNumericValue(cs[0])) + 1 > 10)
+					if (10 - cs.length == Integer.valueOf(Character.getNumericValue(cs[0])))
 						return genSequentialDigits(cs.length + 1, 1);
 					else
 						return genSequentialDigits(cs.length, Integer.valueOf(Character.getNumericValue(cs[0])) + 1);
