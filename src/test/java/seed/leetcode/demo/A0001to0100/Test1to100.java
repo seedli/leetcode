@@ -1,5 +1,7 @@
 package seed.leetcode.demo.A0001to0100;
 
+import static org.junit.Assert.assertFalse;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -565,14 +567,19 @@ public class Test1to100 {
 		TreeNode T6 = new TreeNode(6);
 		TreeNode T7 = new TreeNode(7);
 
-		T4.left = T2;
-		T4.right = T6;
-		T2.left = T1;
-		T2.right = T3;
-		T6.left = T5;
-		T6.right = T7;
+//		T4.left = T2;
+//		T4.right = T6;
+//		T2.left = T1;
+//		T2.right = T3;
+//		T6.left = T5;
+//		T6.right = T7;
 
-		System.out.println(alg.isValidBST(T4));
+		T5.left = T1;
+		T5.right = T4;
+		T4.left = T3;
+		T4.right = T6;
+
+		assertFalse(alg.isValidBST(T5));
 	}
 
 	@Test
