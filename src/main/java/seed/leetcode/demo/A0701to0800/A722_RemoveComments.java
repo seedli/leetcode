@@ -41,54 +41,25 @@ public class A722_RemoveComments {
 		}
 
 		if (!blockMode) {
-			if (s.indexOf(LC) >= 0 && (s.indexOf(BC_S) == -1 || s.indexOf(LC) < s.indexOf(BC_S))) {
-				s = s.substring(0, s.indexOf(LC));
-			}
-			if (s.indexOf(BC_S) >= 0 && s.indexOf(BC_E) >= 0) {
-				s = s.replaceFirst("\\/\\*(\\*(?!\\/)|[^*])*\\*\\/", "");
-			}
-			if (s.indexOf(BC_S) >= 0 && (s.indexOf(LC) == -1 || s.indexOf(BC_S) < s.indexOf(LC))) {
-				s = s.substring(0, s.indexOf(BC_S));
-				blockMode = true;
+			while (s.indexOf(BC_S) > -1 || s.indexOf(LC) > -1) {
+				if (s.indexOf(LC) >= 0 && (s.indexOf(BC_S) == -1 || s.indexOf(LC) < s.indexOf(BC_S))) {
+					s = s.substring(0, s.indexOf(LC));
+				} else if (s.indexOf(BC_S) >= 0) {
+					if (s.indexOf(BC_E) >= 0 && s.lastIndexOf(BC_E) - s.indexOf(BC_S) >= 2) {
+						s = s.replaceFirst("\\/\\*(\\*(?!\\/)|[^*])*\\*\\/", "");
+					} else {
+						s = s.substring(0, s.indexOf(BC_S));
+						blockMode = true;
+					}
+				}
 			}
 		}
 
 		if (blockMode && s.indexOf(BC_E) >= 0) {
-			s = s.substring(s.indexOf(BC_E) + 2);
 			blockMode = false;
+			s = process(s.substring(s.indexOf(BC_E) + 2));
 		}
 
-		if (s.indexOf(BC_S) > 0 || s.indexOf(LC) > 0)
-			return process(s);
-		else
-			return s;
+		return s;
 	}
-
-//	private String process(String s) {
-//		if (blockMode && s.indexOf(BC_E) < 0) {
-//			return "";
-//		}
-//
-//		if (!blockMode) {
-//			while (s.indexOf(BC_S) > -1 || s.indexOf(LC) > -1) {
-//				if (s.indexOf(LC) >= 0 && (s.indexOf(BC_S) == -1 || s.indexOf(LC) < s.indexOf(BC_S))) {
-//					s = s.substring(0, s.indexOf(LC));
-//				} else if (s.indexOf(BC_S) >= 0) {
-//					if (s.indexOf(BC_E) >= 0 && s.indexOf(BC_E) - s.indexOf(BC_S) > 2) {
-//						s = s.replaceFirst("\\/\\*(\\*(?!\\/)|[^*])*\\*\\/", "");
-//					} else {
-//						s = s.substring(0, s.indexOf(BC_S));
-//						blockMode = true;
-//					}
-//				}
-//			}
-//		}
-//
-//		if (blockMode && s.indexOf(BC_E) >= 0) {
-//			s = s.substring(s.indexOf(BC_E) + 2);
-//			blockMode = false;
-//		}
-//
-//		return s;
-//	}
 }

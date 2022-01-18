@@ -32,11 +32,15 @@ public class A722_RemoveCommentsTest {
 		res = a.removeComments(new String[] { "a//*b//*c", "blank", "d/*/e*//f" });
 		System.out.println(Arrays.toString(res.toArray()));
 
+		res = a.removeComments(new String[] { "a/*/b//*c", "blank", "d/*/e*//f" });
+		System.out.println(Arrays.toString(res.toArray()));
+
 		res = a.removeComments(new String[] { "main() {", "  Node* p;", "  /* declare a Node", "  /*float f = 2.0",
 				"   p->val = f;", "   /**/", "   p->val = 1;", "   //*/ cout << success;*/", "}", " " });
 		System.out.println(Arrays.toString(res.toArray()));
 
-		res = a.removeComments(new String[] { "a/*/b//*c", "blank", "d/*/e*//f" });
+		res = a.removeComments(new String[] { "struct Node{", "    /*/ declare members;/**/", "    int size;",
+				"    /**/int val;", "};" });
 		System.out.println(Arrays.toString(res.toArray()));
 
 		res = a.removeComments(
