@@ -43,6 +43,7 @@ public class Utility {
 		if (list.size() == 0)
 			return null;
 
+		list = new LinkedList<Integer>(list);
 		Queue<TreeNode> setUpQueue = new LinkedList<>();
 		TreeNode root = new TreeNode(list.get(0));
 		list.remove(0);
