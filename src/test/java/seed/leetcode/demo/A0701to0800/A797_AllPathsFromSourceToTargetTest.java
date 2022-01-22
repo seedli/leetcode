@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import seed.leetcode.demo.A0701to0800.A797_AllPathsFromSourceToTarget;
-
 public class A797_AllPathsFromSourceToTargetTest {
 
 	@Test
@@ -33,7 +31,7 @@ public class A797_AllPathsFromSourceToTargetTest {
 	private void printResult(List<List<Integer>> result) {
 		for (List<Integer> path : result) {
 			path.forEach(i -> System.out.print(i + " "));
-			System.out.println(" ?†µ");
+			System.out.println(" ");
 		}
 		System.out.println("end");
 
